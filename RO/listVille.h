@@ -8,14 +8,24 @@
 #include <list>
 #include "ville.h"
 
+enum TypeGeneration : int {
+    Random,
+    Croissant,
+};
+
 class listVille {
 public:
-    listVille();
+    listVille(TypeGeneration type);
     void insert(ville newVille);
-
+    double distance(ville* ville1, ville* ville2);
+    ville* getVille(int NumVille);
+    std::string toString();
+    std::string toShortString();
 private:
+    listVille();
+    void readFromFile();
+    void random();
     std::list<ville> listeVilles;
-
 };
 
 #endif //RO_LISTVILLE_H

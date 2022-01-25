@@ -1,10 +1,11 @@
 #include <iostream>
+#include <iomanip>
 #include "listVille.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-
     listVille list;
 
+    std::cout << list.toString() << std::endl;
+    std::cout << std::setprecision(20) << "Distance entre la ville 1 et la ville 2 : " << list.distance(list.getVille(1), list.getVille(2)) << std::endl;
     return 0;
 }

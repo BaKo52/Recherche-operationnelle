@@ -3,4 +3,4 @@ project(RO)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(RO main.cpp ville.cpp ville.h listVille.cpp listVille.h)
+add_executable(RO main.cpp ville.cpp ville.h listVille.cpp listVille.h tour.cpp tour.h)
