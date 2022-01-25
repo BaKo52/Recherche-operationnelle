@@ -1,0 +1,108 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Ninja"
+		},
+		"paths" : 
+		{
+			"cmake" : "//iut21.u-bourgogne.fr/racine/dijon/enseignement/etudiants/IQ/IQ-2/bk296745/CLion 2021.3.2/bin/cmake/win/bin/cmake.exe",
+			"cpack" : "//iut21.u-bourgogne.fr/racine/dijon/enseignement/etudiants/IQ/IQ-2/bk296745/CLion 2021.3.2/bin/cmake/win/bin/cpack.exe",
+			"ctest" : "//iut21.u-bourgogne.fr/racine/dijon/enseignement/etudiants/IQ/IQ-2/bk296745/CLion 2021.3.2/bin/cmake/win/bin/ctest.exe",
+			"root" : "//iut21.u-bourgogne.fr/racine/dijon/enseignement/etudiants/IQ/IQ-2/bk296745/CLion 2021.3.2/bin/cmake/win/share/cmake-3.21"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 3,
+			"minor" : 21,
+			"patch" : 1,
+			"string" : "3.21.1",
+			"suffix" : ""
+		}
+	},
+	"objects" : 
+	[
+		{
+			"jsonFile" : "codemodel-v2-c12f7e0cce997fd2c219.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 3
+			}
+		},
+		{
+			"jsonFile" : "cache-v2-1a2f558c55c6b7bd9a18.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		{
+			"jsonFile" : "cmakeFiles-v1-9e87d7adfbd066435acc.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 0
+			}
+		},
+		{
+			"jsonFile" : "toolchains-v1-7939dda355cdbb257709.json",
+			"kind" : "toolchains",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 0
+			}
+		}
+	],
+	"reply" : 
+	{
+		"cache-v2" : 
+		{
+			"jsonFile" : "cache-v2-1a2f558c55c6b7bd9a18.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		"cmakeFiles-v1" : 
+		{
+			"jsonFile" : "cmakeFiles-v1-9e87d7adfbd066435acc.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 0
+			}
+		},
+		"codemodel-v2" : 
+		{
+			"jsonFile" : "codemodel-v2-c12f7e0cce997fd2c219.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 3
+			}
+		},
+		"toolchains-v1" : 
+		{
+			"jsonFile" : "toolchains-v1-7939dda355cdbb257709.json",
+			"kind" : "toolchains",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 0
+			}
+		}
+	}
+}
