@@ -44,7 +44,7 @@ ville::ville(std::string line) {
     this->Longitude = longitude;
 }
 
-std::string ville::toString() {
+std::string ville::toString() const {
     std::string output = std::to_string(this->NumVille) + " " + this->Nom + " " + std::to_string(this->Latitude) + " " + std::to_string(this->Longitude);
     return output;
 }

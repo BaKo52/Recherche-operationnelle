@@ -13,7 +13,7 @@ class ville {
 public:
     ville(int numVille, double latitude = 0, double longitude = 0, std::string nom = " ");
     ville(std::string line);
-    std::string toString();
+    std::string toString() const;
     const std::string &getNom() const;
     int getNumVille() const;
     double getLatitude() const;

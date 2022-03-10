@@ -61,14 +61,8 @@ build CMakeFiles/RO.dir/ville.cpp.obj: CXX_COMPILER__RO_Debug C$:/Users/bkott/Do
   OBJECT_DIR = CMakeFiles\RO.dir
   OBJECT_FILE_DIR = CMakeFiles\RO.dir
 
-build CMakeFiles/RO.dir/listVille.cpp.obj: CXX_COMPILER__RO_Debug C$:/Users/bkott/Documents/GitHub/Recherche-operationnelle/RO/listVille.cpp || cmake_object_order_depends_target_RO
-  DEP_FILE = CMakeFiles\RO.dir\listVille.cpp.obj.d
-  FLAGS = -g -std=gnu++11
-  OBJECT_DIR = CMakeFiles\RO.dir
-  OBJECT_FILE_DIR = CMakeFiles\RO.dir
-
-build CMakeFiles/RO.dir/tour.cpp.obj: CXX_COMPILER__RO_Debug C$:/Users/bkott/Documents/GitHub/Recherche-operationnelle/RO/tour.cpp || cmake_object_order_depends_target_RO
-  DEP_FILE = CMakeFiles\RO.dir\tour.cpp.obj.d
+build CMakeFiles/RO.dir/tournee.cpp.obj: CXX_COMPILER__RO_Debug C$:/Users/bkott/Documents/GitHub/Recherche-operationnelle/RO/tournee.cpp || cmake_object_order_depends_target_RO
+  DEP_FILE = CMakeFiles\RO.dir\tournee.cpp.obj.d
   FLAGS = -g -std=gnu++11
   OBJECT_DIR = CMakeFiles\RO.dir
   OBJECT_FILE_DIR = CMakeFiles\RO.dir
@@ -81,7 +75,7 @@ build CMakeFiles/RO.dir/tour.cpp.obj: CXX_COMPILER__RO_Debug C$:/Users/bkott/Doc
 #############################################
 # Link the executable RO.exe
 
-build RO.exe: CXX_EXECUTABLE_LINKER__RO_Debug CMakeFiles/RO.dir/main.cpp.obj CMakeFiles/RO.dir/ville.cpp.obj CMakeFiles/RO.dir/listVille.cpp.obj CMakeFiles/RO.dir/tour.cpp.obj
+build RO.exe: CXX_EXECUTABLE_LINKER__RO_Debug CMakeFiles/RO.dir/main.cpp.obj CMakeFiles/RO.dir/ville.cpp.obj CMakeFiles/RO.dir/tournee.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\RO.dir
