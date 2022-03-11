@@ -13,6 +13,7 @@ class ville {
 public:
     ville(int numVille, double latitude = 0, double longitude = 0, std::string nom = " ");
     ville(std::string line);
+    ville();
     std::string toString() const;
     const std::string &getNom() const;
     int getNumVille() const;
@@ -20,6 +21,7 @@ public:
     double getLongitude() const;
     bool operator==(const ville &rhs) const;
     bool operator!=(const ville &rhs) const;
+    bool operator<(const ville &ths) const;
     ville* copy();
 
 private:

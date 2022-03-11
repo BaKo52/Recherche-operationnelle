@@ -11,9 +11,10 @@ int main() {
     std::cout << std::endl;
     std::cout << list.afficheTour() << std::endl;
     std::cout << std::endl;
+    std::cout << "Cout de la tournée en ordre croissant : " << list.coutTournee() << " km" << std::endl;
+    std::cout << std::endl;
     std::cout << std::setprecision(20) << "Distance entre la ville 1 et la ville 2 : " << tournee::distance(list.getVille(1), list.getVille(2)) << " km" << std::endl;
     std::cout << std::endl;
-    std::cout << "Cout de la tournée : " << list.coutTournee() << " km" << std::endl;
 
     list = tournee(Random);
 
@@ -21,7 +22,17 @@ int main() {
     std::cout << std::endl;
     std::cout << list.afficheTour() << std::endl;
     std::cout << std::endl;
-    std::cout << "Cout de la tournée : " << list.coutTournee() << " km" << std::endl;
+    std::cout << "Cout de la tournée aléatoire : " << list.coutTournee() << " km" << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << "Glouton plus proche voisin : " << std::endl;
+    list.plusProcheVoisin(*list.getVille(1));
+    std::cout << list.toString() << std::endl;
+    std::cout << std::endl;
+    std::cout << list.afficheTour() << std::endl;
+    std::cout << std::endl;
+    std::cout << "Cout de la tournée aléatoire : " << list.coutTournee() << " km" << std::endl;
 
     return 0;
 }

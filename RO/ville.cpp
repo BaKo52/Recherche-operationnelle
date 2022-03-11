@@ -77,3 +77,7 @@ ville* ville::copy() {
     return this;
 }
 
+bool ville::operator<(const ville &ths) const{
+    return this->getNumVille() < ths.NumVille;
+}
+

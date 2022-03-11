@@ -8,27 +8,33 @@
 #include <list>
 #include "ville.h"
 #include <vector>
+#include <map>
+
+using namespace std;
 
 enum TypeGeneration : int {
     Random,
     Croissant,
+    GloutonPlusProcheVoisin
 };
 
 class tournee {
 public:
     explicit tournee(TypeGeneration type);
-    void insert(const ville& newVille);
-    static double distance(ville* ville1, ville* ville2);
+    void insert(ville &newVille);
+    static double distance(ville &ville1, ville &ville2);
     double coutTournee();
     ville* getVille(int NumVille);
-    std::string toString();
-    std::string afficheTour();
+    string toString();
+    string afficheTour();
+    void plusProcheVoisin(ville &s);
 private:
     tournee();
     void readFromFile();
     void random();
-    std::vector<ville> listeVilles;
-    std::string name;
+    ville plusProche(ville &v, const map<ville, bool>& estVisite);
+    vector<ville> listeVilles;
+    string name;
 };
 
 #endif //RO_TOURNEE_H
