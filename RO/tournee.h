@@ -32,7 +32,7 @@ private:
     tournee();
     void readFromFile();
     void random();
-    ville plusProche(ville &v, const map<ville, bool>& estVisite);
+    ville plusProche(ville &v, map<ville, bool> estVisite);
     vector<ville> listeVilles;
     string name;
 };

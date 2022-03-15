@@ -3,10 +3,12 @@
 //
 
 #include <iostream>
+#include <utility>
 #include "ville.h"
 
-ville::ville(int numVille, double latitude, double longitude, std::string nom) : NumVille(numVille), Latitude(latitude),
-                                                                               Longitude(longitude), Nom(nom) {}
+
+
+ville::ville(int numVille, double latitude, double longitude, std::string nom) : NumVille(numVille), Latitude(latitude),Longitude(longitude), Nom(std::move(nom)) {}
 
 ville::ville(std::string line) {
     double latitude;
@@ -80,4 +82,3 @@ ville* ville::copy() {
 bool ville::operator<(const ville &ths) const{
     return this->getNumVille() < ths.NumVille;
 }
-

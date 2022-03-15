@@ -11,9 +11,8 @@
 class ville {
 
 public:
-    ville(int numVille, double latitude = 0, double longitude = 0, std::string nom = " ");
-    ville(std::string line);
-    ville();
+    explicit ville(int numVille = 0, double latitude = 0.0, double longitude = 0.0, std::string nom = "Default");
+    explicit ville(std::string line);
     std::string toString() const;
     const std::string &getNom() const;
     int getNumVille() const;

@@ -124,11 +124,20 @@ void tournee::plusProcheVoisin(ville &s) {
     vector<ville> final;
     ville suivant;
 
+    //On initialise la map à false
+    for(ville &v : this->listeVilles){
+        estVisite[v] = false;
+    }
+
+    //On valide notre ville de départ
+    //Ajout au résultat final + map estVisite
     final.push_back(s);
     estVisite[s] = true;
 
-    while(estVisite.size() < 80){
-        suivant = tournee::plusProche(s, estVisite);
+    //On recherche la ville la plus proche non visite et on l'ajoute au résultat final
+    //On fait ça 79 fois afin de parcourir tout les autres villes
+    for(int i = 0; i < 79; i++){
+        suivant = plusProche(s, estVisite);
         estVisite[suivant] = true;
         final.push_back(suivant);
         s = suivant;
@@ -137,26 +146,20 @@ void tournee::plusProcheVoisin(ville &s) {
     this->listeVilles = final;
 }
 
-ville tournee::plusProche(ville &start, const map<ville, bool>& estVisite) {
+ville tournee::plusProche(ville &start, map<ville,bool> estVisite) {
     map<double, ville *> distance;
-    bool found = false;
 
+    //Calcul des distances entre start et les autres villes
+    //Et on les rentre dans une map<distance, destination>
     for (ville &v: this->listeVilles) {
-        if (v.getNumVille() != start.getNumVille()) {
+        if (!estVisite[v]) {
             distance[this->distance(start, v)] = &v;
         }
     }
 
+    //On prends l'élément minimum
     auto ville = min_element(distance.begin(), distance.end());
 
-    while (!found) {
-        if (estVisite.count(*ville->second) != 0) {
-            remove(distance.begin(), distance.end(), *ville->second);
-            ville = min_element(distance.begin(), distance.end());
-        } else {
-            found = true;
-        }
-    }
-
+    //On retourne la ville
     return *ville->second;
 }
