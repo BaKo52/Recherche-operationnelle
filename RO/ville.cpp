@@ -67,18 +67,14 @@ double ville::getLongitude() const {
     return Longitude;
 }
 
-bool ville::operator==(const ville &rhs) const {
-    return NumVille == rhs.NumVille;
-}
-
-bool ville::operator!=(const ville &rhs) const {
-    return !(rhs == *this);
-}
-
 ville* ville::copy() {
     return this;
 }
 
-bool ville::operator<(const ville &ths) const{
-    return this->getNumVille() < ths.NumVille;
+bool ville::operator<(const ville &ths) const {
+    return this->getNumVille() < ths.getNumVille();
+}
+
+bool ville::operator==(const ville &ths) const {
+    return this->getNumVille() == ths.getNumVille();
 }

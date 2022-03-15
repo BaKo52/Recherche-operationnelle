@@ -18,9 +18,8 @@ public:
     int getNumVille() const;
     double getLatitude() const;
     double getLongitude() const;
-    bool operator==(const ville &rhs) const;
-    bool operator!=(const ville &rhs) const;
     bool operator<(const ville &ths) const;
+    bool operator==(const ville &ths) const;
     ville* copy();
 
 private:

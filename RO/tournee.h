@@ -15,26 +15,30 @@ using namespace std;
 enum TypeGeneration : int {
     Random,
     Croissant,
-    GloutonPlusProcheVoisin
+    PlusProcheVoisin,
+    InsertionProche
 };
 
 class tournee {
 public:
-    explicit tournee(TypeGeneration type);
+    explicit tournee(TypeGeneration type = Croissant, int numVille = 0);
     void insert(ville &newVille);
     static double distance(ville &ville1, ville &ville2);
     double coutTournee();
     ville* getVille(int NumVille);
     string toString();
     string afficheTour();
-    void plusProcheVoisin(ville &s);
+    vector<ville> plusProcheVoisin(ville &s);
+    void plusProcheVoisinAmeliore();
+    pair<ville, ville> deuxVillesLesPlusEloignees();
 private:
-    tournee();
     void readFromFile();
     void random();
+    void insertionProche();
     ville plusProche(ville &v, map<ville, bool> estVisite);
     vector<ville> listeVilles;
     string name;
+    pair<int, ville> plusProcheDeLaTournee(vector<ville> tournee, map<ville, bool> estVisite);
 };
 
 #endif //RO_TOURNEE_H
