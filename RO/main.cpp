@@ -52,6 +52,12 @@ int main() {
     std::cout << list.toString() << std::endl << std::endl;
     std::cout << list.afficheTour() << std::endl << std::endl;
     std::cout << "Cout de la tournée insertion proche : " << list.coutTournee() << " km" << std::endl << std::endl;
+
+    list = tournee(PremierDabord);
+    std::cout << "------------------------- Recherche locale premier d'abord -------------------------" << std::endl;
+    std::cout << list.toString() << std::endl << std::endl;
+    std::cout << list.afficheTour() << std::endl << std::endl;
+    std::cout << "Cout de la tournée premier d'abord : " << list.coutTournee() << " km" << std::endl << std::endl;
     cin >> holdup;
 
     return 0;

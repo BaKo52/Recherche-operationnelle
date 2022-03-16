@@ -16,12 +16,14 @@ enum TypeGeneration : int {
     Random,
     Croissant,
     PlusProcheVoisin,
-    InsertionProche
+    InsertionProche,
+    PremierDabord,
+    Copie
 };
 
 class tournee {
 public:
-    explicit tournee(TypeGeneration type = Croissant, int numVille = 0);
+    explicit tournee(TypeGeneration type = Croissant, int numVille = 0, vector<ville> villes = {});
     void insert(ville &newVille);
     static double distance(ville &ville1, ville &ville2);
     double coutTournee();
@@ -35,10 +37,12 @@ private:
     void readFromFile();
     void random();
     void insertionProche();
+    void rechercheLocale(TypeGeneration type);
+    tournee successeurs_premier_d_abord(tournee tCourante);
     ville plusProche(ville &v, map<ville, bool> estVisite);
+    pair<int, ville> plusProcheDeLaTournee(vector<ville> tournee, map<ville, bool> estVisite);
     vector<ville> listeVilles;
     string name;
-    pair<int, ville> plusProcheDeLaTournee(vector<ville> tournee, map<ville, bool> estVisite);
 };
 
 #endif //RO_TOURNEE_H

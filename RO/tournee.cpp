@@ -14,7 +14,7 @@
 
 using namespace std;
 
-tournee::tournee(TypeGeneration type, int numVille) {
+tournee::tournee(TypeGeneration type, int numVille, vector<ville> villes) {
     switch (type) {
         case Random:
             this->random();
@@ -33,6 +33,19 @@ tournee::tournee(TypeGeneration type, int numVille) {
             this->insertionProche();
             this->name = "insertion_proche";
             break;
+        case PremierDabord:
+            this->readFromFile();
+            this->plusProcheVoisin(*this->getVille(1));
+            this->rechercheLocale(type);
+            this->name = "premier_d_abord";
+        case Copie:
+            if(villes.size() == 0){
+                this->readFromFile();
+                this->plusProcheVoisin(*this->getVille(1));
+            }else{
+                this->listeVilles = villes;
+            }
+            this->name = "copie";
     }
 }
 
@@ -62,6 +75,9 @@ void tournee::random() {
     shuffle(this->listeVilles.begin(), this->listeVilles.end(), default_random_engine(seed));
 }
 
+/**
+ * WIP !
+ */
 void tournee::insertionProche() {
     map<ville, bool> estVisite;
     vector<ville> final;
@@ -182,9 +198,11 @@ ville tournee::plusProche(ville &start, map<ville,bool> estVisite) {
 
     //Calcul des distances entre start et les autres villes
     //Et on les rentre dans une map<distance, destination>
-    for (ville &v: this->listeVilles) {
-        if (!estVisite[v]) {
-            distance[this->distance(start, v)] = &v;
+    for (int i = 0; i < 80; i++) {
+        if (!estVisite[this->listeVilles.at(i)]) {
+            if(distance.find(this->distance(start, this->listeVilles.at(i))) == distance.end()){
+                distance[this->distance(start, this->listeVilles.at(i))] = &this->listeVilles.at(i);
+            }
         }
     }
 
@@ -249,4 +267,39 @@ pair<int, ville> tournee::plusProcheDeLaTournee(vector<ville> tournee, map<ville
     }
 
     return min_element(distance.begin(), distance.end())->second;
+}
+
+void tournee::rechercheLocale(TypeGeneration type) {
+    tournee tCourante = tournee(Copie, 0, this->listeVilles);
+    tournee tVoisin = tournee(Copie);
+    bool end = false;
+
+    while(!end){
+        end = true;
+        switch(type){
+            case PremierDabord:
+                tVoisin = this->successeurs_premier_d_abord(tCourante);
+                break;
+        }
+
+        if(tVoisin.coutTournee() < tCourante.coutTournee()){
+            tCourante = tVoisin;
+            end = false;
+        }
+
+        cout << tCourante.coutTournee() << endl;
+    }
+
+    this->listeVilles = tCourante.listeVilles;
+}
+
+tournee tournee::successeurs_premier_d_abord(tournee tCourante) {
+    tournee tVoisin = tournee();
+
+    for(int i = 0; i < tCourante.listeVilles.size(); i++){
+        iter_swap(tCourante.listeVilles.begin() + (i % 80), tCourante.listeVilles.begin() + ((i + 1) % 80));
+        std::copy(tCourante.listeVilles.begin(), tCourante.listeVilles.end(), tVoisin.listeVilles.begin());
+    }
+
+    return tVoisin;
 }
