@@ -14,7 +14,9 @@
 
 using namespace std;
 
-tournee::tournee(TypeGeneration type, int numVille, vector<ville> villes) {
+tournee::tournee() = default;
+
+tournee::tournee(TypeGeneration type, vector<ville> villes) {
     switch (type) {
         case Random:
             this->random();
@@ -189,7 +191,6 @@ vector<ville> tournee::plusProcheVoisin(ville &s) {
     }
 
     this->listeVilles = final;
-
     return final;
 }
 
@@ -269,37 +270,36 @@ pair<int, ville> tournee::plusProcheDeLaTournee(vector<ville> tournee, map<ville
     return min_element(distance.begin(), distance.end())->second;
 }
 
+/**
+ * WIP /!\
+ * @param type type de recherche locale
+ */
 void tournee::rechercheLocale(TypeGeneration type) {
-    tournee tCourante = tournee(Copie, 0, this->listeVilles);
-    tournee tVoisin = tournee(Copie);
+    tournee tCourante = tournee(Copie, this->listeVilles);
+    tournee temp;
+    tournee tVoisin;
     bool end = false;
 
     while(!end){
         end = true;
         switch(type){
             case PremierDabord:
-                tVoisin = this->successeurs_premier_d_abord(tCourante);
+                for(int i = 0; i < tCourante.listeVilles.size(); i++){
+                    std::copy(temp.listeVilles.begin(), temp.listeVilles.end(), tCourante.listeVilles);
+                    //tVoisin = temp;
+                    if(tVoisin.coutTournee() < tCourante.coutTournee()){
+                        std::copy(tCourante.listeVilles.begin(), tCourante.listeVilles.end(), tVoisin.listeVilles);
+                        end = false;
+                    }
+                }
                 break;
         }
-
-        if(tVoisin.coutTournee() < tCourante.coutTournee()){
-            tCourante = tVoisin;
-            end = false;
-        }
-
         cout << tCourante.coutTournee() << endl;
     }
 
     this->listeVilles = tCourante.listeVilles;
 }
 
-tournee tournee::successeurs_premier_d_abord(tournee tCourante) {
-    tournee tVoisin = tournee();
-
-    for(int i = 0; i < tCourante.listeVilles.size(); i++){
-        iter_swap(tCourante.listeVilles.begin() + (i % 80), tCourante.listeVilles.begin() + ((i + 1) % 80));
-        std::copy(tCourante.listeVilles.begin(), tCourante.listeVilles.end(), tVoisin.listeVilles.begin());
-    }
-
-    return tVoisin;
+void tournee::setName(const char *string) {
+    this->name = string;
 }

@@ -23,7 +23,9 @@ enum TypeGeneration : int {
 
 class tournee {
 public:
-    explicit tournee(TypeGeneration type = Croissant, int numVille = 0, vector<ville> villes = {});
+    tournee();
+
+    explicit tournee(TypeGeneration type, vector<ville> villes);
     void insert(ville &newVille);
     static double distance(ville &ville1, ville &ville2);
     double coutTournee();
@@ -33,12 +35,15 @@ public:
     vector<ville> plusProcheVoisin(ville &s);
     void plusProcheVoisinAmeliore();
     pair<ville, ville> deuxVillesLesPlusEloignees();
+    string getName() {return this->name;}
+
+    void setName(const char *string);
+
 private:
     void readFromFile();
     void random();
     void insertionProche();
     void rechercheLocale(TypeGeneration type);
-    tournee successeurs_premier_d_abord(tournee tCourante);
     ville plusProche(ville &v, map<ville, bool> estVisite);
     pair<int, ville> plusProcheDeLaTournee(vector<ville> tournee, map<ville, bool> estVisite);
     vector<ville> listeVilles;
